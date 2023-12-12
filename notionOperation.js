@@ -104,23 +104,6 @@ class NotionOperations{
 }
 
 
-const x = new NotionOperations("fd0e8c50418f4360b512be4b5303d5cf")
-// x.getSpecificType("table_row").then(res=>{
-//     console.log(res);
-// });
-// x.getAllSimpleTableContents().then(res=>{
-//     // console.log(res)
-// })
-
-// x.getAgetPageBlocks().then(res=>{
-//     console.log(res);
-// })
-
-// x.getProperties('38ee7af51a8c4342b4b5404fab468ab3');
-x.filterForType("table").then(res=>{
-    console.log("THIS: ",res)
-})
-
 class simpleTableManipulation{
     /**
      * Creates an instance of simpleTableManipulation.
@@ -272,4 +255,39 @@ class simpleTableManipulation{
     }
 }
 
-const y = new simpleTableManipulation('e7ca1696-f5d4-40be-b2c2-810bc9acb684',{ table_width: 3, has_column_header: true, has_row_header: false })
+// const y = new simpleTableManipulation('e7ca1696-f5d4-40be-b2c2-810bc9acb684',{ table_width: 3, has_column_header: true, has_row_header: false })
+// const x = new NotionOperations("fd0e8c50418f4360b512be4b5303d5cf")
+
+
+module.exports = {
+    simpleTableManipulation,
+    NotionOperations
+}
+
+
+
+// OTHER FUNCTIONS
+
+/*
+    How to change the property: 
+        1. You need the data itself and all the required meta data for that specific property.
+            e.g. date -> 
+                - I need to specify where in the hierarchy of objects the data should be placed, -> {Date: {date: ....}}
+                - I need to specify the data and the surrounding data -> { start: '2024-04-01', end: null, time_zone: null }
+*/
+
+// async function changeSinglePageProperty(pageID,property,propertyData){
+//     await notion.pages.update({
+//         page_id: '6f4405e100104300af8a8ab23c83d95e', 
+//         properties: {
+//             Date: {
+//                 date: 
+//                     { 
+//                         start: '2024-04-01', 
+//                         end: null, 
+//                         time_zone: null 
+//                     }
+//             }
+//         }
+//     })
+// }
